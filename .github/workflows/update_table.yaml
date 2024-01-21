@@ -24,10 +24,16 @@ jobs:
           ls -ltra  
           pwd
           bash ${{ github.workspace }}/.github/workflows/update_table.sh
+          git add README.md
+          git commit -m "Updated README.md table"
+          git push          
 
       - name: Run update_table.sh for 100DaysOfProgramming/python
         working-directory: 100DaysOfProgramming/python
         run:  |
           ls -ltra  
           pwd
-          bash ${{ github.workspace }}/.github/workflows/update_table.sh        
+          bash ${{ github.workspace }}/.github/workflows/update_table.sh
+          git add README.md
+          git commit -m "Updated README.md table"
+          git push                     
