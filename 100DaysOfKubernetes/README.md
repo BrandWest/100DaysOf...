@@ -1,8 +1,14 @@
 # 100 Days of Kubernetes
 
-Welcome to my **100 Days of Kubernetes** journey! This repository serves as a public record of my daily progress and aspirations as I dive into the world of **Kubernetes**.
+Welcome to my **100 Days of Kubernetes** journey! This repository serves as a public record of my daily progress and aspirations as I dive into the world of **Kubernetes**. 
+
+## Why 100 days?
+
+I have observed that my current approach to learning has been somewhat informal and lacks comprehensiveness. Despite having numerous operational services in place and a solid understanding of the communication dynamics among applications, microservices, and endpoints, I often encounter challenges when delving into more advanced topics. 
 
 ## Goals and Aspirations
+
+My strategic plan involves initiating a comprehensive learning journey, beginning with foundational concepts. This approach aims to systematically construct a robust knowledge base, enabling me to adeptly construct, manage, and flourish within my home ecosystem. Additionally, it positions me to address and overcome specific challenges encountered in my professional endeavors.
 
 ### Why Kubernetes?
 
