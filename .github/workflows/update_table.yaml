@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CI_COMMIT_MESSAGE: Git Actions Workflow - Update README
-      CI_COMMIT_AUTHOR: CI
+      CI_COMMIT_AUTHOR: BrandWest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -43,7 +43,7 @@ jobs:
         run: |
           echo "Current dir: ${pwd}"
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
-          git config --global user.email "username@users.noreply.github.com"
+          git config --global user.email "brand.jwest@gmail.com"
           git add ${{ github.workspace }}/100DaysOfKubernetes/README.md 
           git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
           git push
