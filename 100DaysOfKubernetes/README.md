@@ -40,7 +40,7 @@ Kubernetes has become a cornerstone in modern container orchestration and cloud-
 
 ### Daily Progress
 
-Throughout this journey, I will document my daily progress, challenges faced, and the skills acquired. Each day, I will strive to achieve specific milestones that contribute to my overarching goals.
+Throughout this journey, I will document my daily progress, challenges faced, and the skills acquired. Each day, I will strive to achieve specific milestones that contribute to my overarching goals
 
 ### Daily Tracker
 
