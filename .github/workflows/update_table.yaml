@@ -8,9 +8,6 @@ jobs:
     env:
       CI_COMMIT_MESSAGE: Git Actions Workflow - Update README
       CI_COMMIT_AUTHOR: CI
-    outputs:
-      kubernetes: ${{ steps.filter.outputs.kubernetes }}
-      python: ${{ steps.filter.outputs.python }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -20,12 +17,12 @@ jobs:
         with:
           filters: |
             kubernetes:
-              - '100 Days of.../100DaysOfKubernetes/**'
+              - '${{ github.workspace }}/100DaysOfKubernetes/**'
             python:
-              - '100 Days of.../100DaysOfProgramming/python/**'
+              - '${{ github.workspace }}/100DaysOfProgramming/python/**'
           
       - name: Run update_table.sh for 100DaysOfKubernetes
-        if: steps.filter.output.kubernetes == 'true'
+        if: steps.filter.outputs.kubernetes == 'true'
         working-directory: 100DaysOfKubernetes
         run:  |
           ls -ltra  
@@ -34,19 +31,28 @@ jobs:
           bash ${{ github.workspace }}/.github/workflows/update_table.sh
 
       - name: Run update_table.sh for 100DaysOfProgramming/python
-        if: steps.filter.output.python == 'true'
+        if: steps.filter.outputs.python == 'true'
         working-directory: 100DaysOfProgramming/python
         run:  |
           ls -ltra  
           pwd
           bash ${{ github.workspace }}/.github/workflows/update_table.sh
 
-      - name: Push new README.mds
-        if: ${{ (steps.filter.output.kubernetes == 'true') || (steps.filter.output.python == 'true') }}
+      - name: Push new README.mds Kubernetes
+        if: ${{ steps.filter.outputs.kubernetes == 'true' }}
         run: |
           echo "Current dir: ${pwd}"
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
           git config --global user.email "username@users.noreply.github.com"
-          git add ${{ github.workspace }}/README.md 
+          git add ${{ github.workspace }}/100DaysOfKubernetes/README.md 
+          git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git push
+      - name: Push new README.mds Python
+        if: ${{ steps.filter.outputs.python == 'true' }}
+        run: |
+          echo "Current dir: ${pwd}"
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "username@users.noreply.github.com"
+          git add ${{ github.workspace }}/100DaysOfProgramming/python/README.md 
           git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
           git push
