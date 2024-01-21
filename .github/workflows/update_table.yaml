@@ -17,9 +17,9 @@ jobs:
         with:
           filters: |
             kubernetes:
-              - '${{ github.workspace }}/100DaysOfKubernetes/**'
+              - '100DaysOfKubernetes/**'
             python:
-              - '${{ github.workspace }}/100DaysOfProgramming/python/**'
+              - '100DaysOfProgramming/python/**'
           
       - name: Run update_table.sh for 100DaysOfKubernetes
         if: steps.filter.outputs.kubernetes == 'true'
