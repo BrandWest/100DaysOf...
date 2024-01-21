@@ -25,7 +25,7 @@ jobs:
               - '100 Days of.../100DaysOfProgramming/python/**'
           
       - name: Run update_table.sh for 100DaysOfKubernetes
-        if: steps.filter.output.filters.kubernetes == 'true'
+        if: steps.filter.output.kubernetes == 'true'
         working-directory: 100DaysOfKubernetes
         run:  |
           ls -ltra  
@@ -34,7 +34,7 @@ jobs:
           bash ${{ github.workspace }}/.github/workflows/update_table.sh
 
       - name: Run update_table.sh for 100DaysOfProgramming/python
-        if: steps.filter.output.filters.python == 'true'
+        if: steps.filter.output.python == 'true'
         working-directory: 100DaysOfProgramming/python
         run:  |
           ls -ltra  
@@ -42,7 +42,7 @@ jobs:
           bash ${{ github.workspace }}/.github/workflows/update_table.sh
 
       - name: Push new README.mds
-        if: ${{ (steps.filter.output.filters.kubernetes == 'true') || (steps.filter.output.filters.python == 'true') }}
+        if: ${{ (steps.filter.output.kubernetes == 'true') || (steps.filter.output.python == 'true') }}
         run: |
           echo "Current dir: ${pwd}"
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
