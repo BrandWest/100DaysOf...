@@ -1,7 +1,7 @@
 #!/bin/bash
 # Get the current directory
-CURRENT_DIR=$(dirname "$(readlink -f "$0")")
-
+# CURRENT_DIR=$(dirname "$(readlink -f "$0")")
+CURRENT_DIR=$(pwd)
 # Get today's date
 TODAY=$(date +"%Y-%m-%d")
 
@@ -15,8 +15,8 @@ LAST_COMMIT_MESSAGE=$(git log --format="%s" -n 1)
 # Debugging
 echo "Current Directory: $CURRENT_DIR"
 echo "Today's Date: $TODAY"
-wcho "Last Commit Message: ${LAST_COMMIT_HASH:0:7} $LAST_COMMIT_MESSAGE"
-
+echo "Last Commit Message: ${LAST_COMMIT_HASH:0:7} $LAST_COMMIT_MESSAGE"
+/home/runner/work/100DaysOf.../100DaysOf.../100DaysOfKubernetes
 #Actual work
 sed -i -E "s/\| ([0-9]{4}-[0-9]{2}-[0-9]{2}) \| ([0-9]+) \| [a-f0-9]{7} - (.*)/| $TODAY | $COMMITS_TODAY | ${LAST_COMMIT_HASH:0:7} - $LAST_COMMIT_MESSAGE |/" "$CURRENT_DIR/README.md" 
 
