@@ -9,13 +9,13 @@ Welcome to my 100 Days of Tech Journeys repository! This space hosts a collectio
 Explore my 100-day journey delving into programming languages, frameworks, and coding challenges.
 - [Journey 1 - 100 Days Of Python](./programming/python)
 
-### [DevOps Journey](./devops)
+### [DevOps Journey](./100DaysOfKubernetes)
 
 Dive into my 100-day DevOps journey, focusing on continuous integration, continuous deployment, containerization, and infrastructure as code.
 
 ### [AI Journey](./ai)
 
-Embark on my 100-day AI journey, covering foundational concepts, machine learning frameworks, and hands-on AI projects. #Not Started
+Embark on my 100-day AI journey, covering foundational concepts, machine learning frameworks, and hands-on AI projects. **#Not Started**
 
 ## Overview
 
