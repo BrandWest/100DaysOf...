@@ -34,7 +34,7 @@ jobs:
           bash ${{ github.workspace }}/.github/workflows/update_table.sh
 
       - name: Run update_table.sh for 100DaysOfProgramming/python
-        if: steps.filter.output.filters.pythong == 'true'
+        if: steps.filter.output.filters.python == 'true'
         working-directory: 100DaysOfProgramming/python
         run:  |
           ls -ltra  
@@ -42,7 +42,9 @@ jobs:
           bash ${{ github.workspace }}/.github/workflows/update_table.sh
 
       - name: Push new README.mds
+        if: ${{ (steps.filter.output.filters.kubernetes == 'true') || (steps.filter.output.filters.python == 'true') }}
         run: |
+          echo "Current dir: ${pwd}"
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
           git config --global user.email "username@users.noreply.github.com"
           git add ${{ github.workspace }}/README.md 
