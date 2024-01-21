@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Get the current directory (assuming the script is in .github/scripts)
+# Get the current directory
 CURRENT_DIR=$(dirname "$(readlink -f "$0")")
 
 # Get today's date

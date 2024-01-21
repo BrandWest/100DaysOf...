@@ -19,9 +19,15 @@ jobs:
           git config --local user.name "GitHub Action - Update Table"
 
       - name: Run update_table.sh for 100DaysOfKubernetes
-        run: bash .github/workflows/update_table.sh
         working-directory: 100DaysOfKubernetes
+        run:  |
+          ls -ltra  
+          pwd
+          bash ${{ github.workspace }}/.github/workflows/update_table.sh
 
       - name: Run update_table.sh for 100DaysOfProgramming/python
-        run: bash .github/workflows/update_table.sh
         working-directory: 100DaysOfProgramming/python
+        run:  |
+          ls -ltra  
+          pwd
+          bash ${{ github.workspace }}/.github/workflows/update_table.sh        
