@@ -25,6 +25,6 @@ Throughout each journey, I will document daily progress, challenges faced, and s
 
 Let's connect! Feel free to reach out for collaboration, questions, or discussions.
 
-- [LinkedIn](#https://www.linkedin.com/in/brandonwest87/)
+- [LinkedIn](https://www.linkedin.com/in/brandonwest87/)
 
 Happy coding!
