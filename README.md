@@ -7,7 +7,7 @@ Welcome to my 100 Days of Tech Journeys repository! This space hosts a collectio
 ### [Programming Journey](./programming)
 
 Explore my 100-day journey delving into programming languages, frameworks, and coding challenges.
-- [Journey%201%20-%20100%20Days%20Of%20Python](./programming/python)
+- [Journey 1 - 100 Days Of Python](./programming/python)
 
 ### [DevOps Journey](./devops)
 
