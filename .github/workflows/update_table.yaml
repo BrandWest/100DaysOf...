@@ -1,0 +1,25 @@
+name: Update Commit Table
+
+on:
+  push:
+    paths:
+      - '100 Days of.../100DaysOfKubernetes/**'  
+      - '100 Days of.../100DaysOfProgramming/python/**'  
+
+jobs:
+  update-commit-table:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Update commit table
+        run: |
+          today=$(date +"%Y-%m-%d")
+          sed -i "2i| $today | 1 |" commit_tracker.md
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git commit -m "Update commit table [skip ci]"
+          git push
