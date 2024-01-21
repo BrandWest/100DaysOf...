@@ -1,38 +1,50 @@
 name: Update Commit Table
 
-on:
-  push:
-    branches:
-      - main  
+on: push
 
 jobs:
   update-commit-table:
     runs-on: ubuntu-latest
     env:
-      CI_COMMIT_MESSAGE: Git Actions Workflow
+      CI_COMMIT_MESSAGE: Git Actions Workflow - Update README
       CI_COMMIT_AUTHOR: CI
+    outputs:
+      kubernetes: ${{ steps.filter.outputs.kubernetes }}
+      python: ${{ steps.filter.outputs.python }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
+      - name: path filter
+        uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            kubernetes:
+              - '100 Days of.../100DaysOfKubernetes/**'
+            python:
+              - '100 Days of.../100DaysOfProgramming/python/**'
+          
       - name: Run update_table.sh for 100DaysOfKubernetes
+        if: steps.filter.output.filters.kubernetes == 'true'
         working-directory: 100DaysOfKubernetes
         run:  |
           ls -ltra  
           pwd
+          echo "${{ github. path }}"
           bash ${{ github.workspace }}/.github/workflows/update_table.sh
 
       - name: Run update_table.sh for 100DaysOfProgramming/python
+        if: steps.filter.output.filters.pythong == 'true'
         working-directory: 100DaysOfProgramming/python
         run:  |
           ls -ltra  
           pwd
           bash ${{ github.workspace }}/.github/workflows/update_table.sh
-      
+
       - name: Push new README.mds
         run: |
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
           git config --global user.email "username@users.noreply.github.com"
-          git add README Tracker update
+          git add ${{ github.workspace }}/README.md 
           git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
           git push
