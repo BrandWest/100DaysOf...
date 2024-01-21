@@ -8,15 +8,12 @@ on:
 jobs:
   update-commit-table:
     runs-on: ubuntu-latest
-
+    env:
+      CI_COMMIT_MESSAGE: Git Actions Workflow
+      CI_COMMIT_AUTHOR: CI
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Git
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action - Update Table"
+        uses: actions/checkout@v3
 
       - name: Run update_table.sh for 100DaysOfKubernetes
         working-directory: 100DaysOfKubernetes
@@ -24,11 +21,6 @@ jobs:
           ls -ltra  
           pwd
           bash ${{ github.workspace }}/.github/workflows/update_table.sh
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"          
-          git add README.md
-          git commit -m "Updated README.md table"
-          git push          
 
       - name: Run update_table.sh for 100DaysOfProgramming/python
         working-directory: 100DaysOfProgramming/python
@@ -36,8 +28,11 @@ jobs:
           ls -ltra  
           pwd
           bash ${{ github.workspace }}/.github/workflows/update_table.sh
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"          
-          git add README.md
-          git commit -m "Updated README.md table"
-          git push                     
+      
+      - name: Push new README.mds
+        run: |
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "username@users.noreply.github.com"
+          git add README Tracker update
+          git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git push
