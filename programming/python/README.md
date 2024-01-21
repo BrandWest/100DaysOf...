@@ -2,12 +2,12 @@
 
 Welcome to my 100 Days of Python programming journey! This README serves as a summary of my progress, lessons learned, and achievements during this 100-day adventure.
 
-## Chunks
+-------
+>### Day 1-10 Takeaways
+>- Understood data, functions, strings, maths, user input, lists
+>- Worked on loops, conditions
+>- DocStrings
 
-### Day 1-10 Takeaways
-- Understood data, functions, strings, maths, user input, lists
-- Worked on loops, conditions
-- DocStrings
 #### Day 1
 - [band_name_generator](Day1/band_name_generator.py)
 - [printing_console_day1](Day1/printing_console_day1.py)
@@ -70,11 +70,11 @@ Welcome to my 100 Days of Python programming journey! This README serves as a su
 - [DocStrings](Day10/DocStrings.py)
 - [calculator](Day10/calculator.py)
 - [returning_function](Day10/returning_function.py)
-
-### Day 11-20 Takeaways
-- Modules, own imports, data scopes, debugging
-- Object Oriented Programming
-- TKInter/GUIs
+-------
+>### Day 11-20 Takeaways
+>- Modules, own imports, data scopes, debugging
+>- Object Oriented Programming
+>- TKInter/GUIs
 
 #### Day 11 - Capstone
 - [blackjack_main](Day11%20-%20Capstone/blackjack_main.py)
@@ -112,12 +112,12 @@ Welcome to my 100 Days of Python programming journey! This README serves as a su
 #### Day 20 - SnakeGame + Inheritance
 - [snake_main](Day20%20-%20SnakeGame/snake_main.py)
 - [steps](Day20%20-%20SnakeGame/steps.py)
-
-### Day 21-30 Takeaways
-- Filesystem and file interactions
-- Pandas CSV
-- List Comprehension
-- Error handlings
+-------
+>### Day 21-30 Takeaways
+>- Filesystem and file interactions
+>- Pandas CSV
+>- List Comprehension
+>- Error handlings
 
 #### Day 21 - Inheritance
 - [inheritance](Day21%20-%20Inheritance/inheritance.py)
@@ -158,10 +158,11 @@ Welcome to my 100 Days of Python programming journey! This README serves as a su
 #### Day 30 - Json-Errors
 - [Exception_Handling](Day30%20-%20Json-Errors/Exception_Handling.py)
 - [Own_Exceptions](Day30%20-%20Json-Errors/Own_Exceptions.py)
+-------
+>### Day 31-40 Takeaways
+>- SMTP, API, and Authentication
+>- Connecting to cloud productivity applications
 
-### Day 31-40 Takeaways
-- SMTP, API, and Authentication
-- Connecting to cloud productivity applications
 #### Day 31 - Capstone - Falsh Cards
 - [flashcards](Day31%20-%20Capstone%20-%20Falsh%20Cards/flashcards.py)
 
@@ -190,13 +191,13 @@ Welcome to my 100 Days of Python programming journey! This README serves as a su
 #### Day 39 - Cheap Flight Finder - CAPSTONE
 - [main](Day39%20-%20Cheap%20Flight%20Finder%20-%20CAPSTONE/main.py)
 
+-------
+>## Final Takeaways
+>- Gain a solid understanding of Python syntax and data types.
+>- Master control flow structures and decision-making in Python.
+>- Explore the vast ecosystem of Python modules and libraries.
+>- Apply Python concepts through hands-on coding projects.
+>- Practice problem-solving using Python.
+-------
 
-## Final Takeaways
-- Gain a solid understanding of Python syntax and data types.
-- Master control flow structures and decision-making in Python.
-- Explore the vast ecosystem of Python modules and libraries.
-- Apply Python concepts through hands-on coding projects.
-- Practice problem-solving using Python.
-
-
-Happy coding!
+## Happy coding!
