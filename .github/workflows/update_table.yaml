@@ -24,6 +24,8 @@ jobs:
           ls -ltra  
           pwd
           bash ${{ github.workspace }}/.github/workflows/update_table.sh
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"          
           git add README.md
           git commit -m "Updated README.md table"
           git push          
@@ -34,6 +36,8 @@ jobs:
           ls -ltra  
           pwd
           bash ${{ github.workspace }}/.github/workflows/update_table.sh
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"          
           git add README.md
           git commit -m "Updated README.md table"
           git push                     
