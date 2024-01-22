@@ -108,8 +108,8 @@
 - If a service is namespaced to demo1, demo2 can not use that. Similarly with storage, if you have a storage block of 1GB on the same node or endpoint as demo1 and demo2 but namespaced to demo2, demo1 can not access that storage block.
 - Namespaces are a way to divide cluster resources between multiple users [k8s namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 - there are some premade namespaces which are usable including:
-    - Default
-    - kube-node-lease
+    - Default: The default namespace for apps if not specified
+    - kube-node-lease: 
     - kube-public
     - kube-system
 - When a custom namespace is applied your endpoint will now have a different DNS record <service name>.<namespace>.svc.cluster.local
@@ -122,8 +122,36 @@
 ### Pods
 - Ephemeral, meaning the data is not saved here.
 - Are the smallest point of the kubernetes resource
+- The pods is not type locked to the underlying OS
+- Containers within a pod are run on the same node.
+- [Images](https://kubernetes.io/docs/concepts/containers/images/): 
+    - A container image (generally docker) is the software package that runs the application
+- Containers are to be considered stateless and imutable (not to be changed) while running
+- [Container environments](https://kubernetes.io/docs/concepts/containers/container-environment/):
+    - Provide a filesystem which is an image and one or more volumes
+    - Information ont he container
+    - Informaiton on other objects in the cluster.
+- [Container information](https://kubernetes.io/docs/concepts/containers/container-environment/#container-information):
+    - The hostname of a container is the name of the Pod the container is running.
+    - User defined env variables
+    - The pod name and namespace
+- [Cluster information](https://kubernetes.io/docs/concepts/containers/container-environment/#cluster-information):
+    - Services that were run whent he container was created (as env vars)
+    - This is limited to services within the same ns.
+- [Runtime Class](https://kubernetes.io/docs/concepts/containers/runtime-class/):
+    - Selects the runtime configuration for a container. 
+    - You have to balance between security and performance
+        - Security: Maybe a virtualized hardware solution including isolation, but larger overhead.
+        - Performance: Faster, and more efficent, less secure.
+    -There are a few Runtime Classes built in 
+        - containerd
+        - CRI-O
+- [Container Life-Cycle Hooks](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/):
+    - Managed by kubelet
+    - 
 
-
+#### Examples
+- [Runtime Class Example with Pod](./Examples/example-RuntimeClass.yaml)
 
 ### Interesting commands
 - kubectl delete namespace <name>: Deletes EVERYTHING under the ns.
