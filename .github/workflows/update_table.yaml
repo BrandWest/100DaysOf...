@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MAIN_DIRECTORY: ${{ github.workspace }}
-      CI_COMMIT_MESSAGE: Git Actions Workflow - Update README
+      CI_COMMIT_MESSAGE: Git Actions Workflow - Update daily_commit_tracker
       CI_COMMIT_AUTHOR: BrandWest
     steps:
       - name: Checkout repository
@@ -39,21 +39,22 @@ jobs:
           pwd
           bash ${{ github.workspace }}/.github/workflows/update_table.sh python
 
-      - name: Push new README.mds Kubernetes
+      - name: Push new Daily_trackers Kubernetes
         if: ${{ steps.filter.outputs.kubernetes == 'true' }}
         run: |
           echo "Current dir: ${pwd}"
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
           git config --global user.email "brand.jwest@gmail.com"
-          git add ${{ github.workspace }}/100DaysOfKubernetes/README.md 
+          git add ${{ github.workspace }}/100DaysOfKubernetes/daily_commit_tracker.md 
           git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
           git push
-      - name: Push new README.mds Python
+
+      - name: Push new daily_commit_tracker.mds Python
         if: ${{ steps.filter.outputs.python == 'true' }}
         run: |
           echo "Current dir: ${pwd}"
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
           git config --global user.email "username@users.noreply.github.com"
-          git add ${{ github.workspace }}/100DaysOfProgramming/python/README.md 
+          git add ${{ github.workspace }}/100DaysOfProgramming/python/daily_commit_tracker.md 
           git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
           git push
