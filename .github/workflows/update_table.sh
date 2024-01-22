@@ -1,6 +1,5 @@
 #!/bin/bash
 # Get the current directory
-# CURRENT_DIR=$(dirname "$(readlink -f "$0")")
 CURRENT_DIR=$(pwd)
 # Get today's date
 TODAY=$(date +"%Y-%m-%d")
@@ -19,6 +18,63 @@ echo "Last Commit Message: ${LAST_COMMIT_HASH:0:7} $LAST_COMMIT_MESSAGE"
 echo "Total Commits: $COMMITS_TODAY"
 
 #Actual work
-sed -i -E "s/\| ([0-9]{4}-[0-9]{2}-[0-9]{2}) \| ([0-9]+) \| [a-f0-9]{7} - (.*)/| $TODAY | $COMMITS_TODAY | ${LAST_COMMIT_HASH:0:7} - $LAST_COMMIT_MESSAGE |/" "$CURRENT_DIR/README.md" 
+awk -v today="$TODAY" -v commits="$COMMITS_TODAY" -v hash="${LAST_COMMIT_HASH:0:7}" -v message="$LAST_COMMIT_MESSAGE" '
+BEGIN {
+  FS = "\\s*\\|\\s*";
+  OFS = " | ";
+  found = 0;
+}
+
+# Function to print a line based on its date
+function printLine(date) {
+  if (date == today) {
+    $4 = commits;
+    $5 = hash " - " message;
+    found = 1;
+    if (substr(dates[date], 1, 2) != "| ") {
+      dates[date] = "| " dates[date];
+    }
+    if (substr(dates[date], length(dates[date])-1) != " |") {
+      dates[date] = dates[date] " |";
+    }
+  }
+  print dates[date];
+}
+
+# Process header line
+NR == 1 {
+  print $0;
+  next;
+}
+
+{
+  dates[$2] = $0;
+}
+
+END {
+  if (!found) {
+    dates[today] = today OFS commits OFS hash " - " message;
+  }
+
+  # Print the headers first
+  if (dates["Date"] !~ /\| Date/ && dates["Date"] !~ /\| ---/) {
+    if (substr(dates["Date"], 1, 2) != "| ") {
+      dates["Date"] = "| " dates["Date"];
+    }
+    if (substr(dates["Date"], length(dates["Date"])-1) != " |") {
+      dates["Date"] = dates["Date"] " |";
+    }
+  }
+  
+  
+
+  # Print the dates in ascending order, skipping the header line
+  asorti(dates, sorted_dates);
+  for (i = 1; i <= length(sorted_dates); i++) {
+    if (sorted_dates[i] != "Date") {
+      printLine(sorted_dates[i]);
+    }
+  }
+}' "$CURRENT_DIR/daily_commit_tracker.md" > tmpfile && mv tmpfile "$CURRENT_DIR/daily_commit_tracker.md"
 
 
