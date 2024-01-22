@@ -204,9 +204,5 @@ Welcome to my 100 Days of Python programming journey! This README serves as a su
 
 Throughout this journey, I will document my daily progress, challenges faced, and the skills acquired. Each day, I will strive to achieve specific milestones that contribute to my overarching goals.
 
-### Daily Tracker
-
-| Date | Commits | Last Commit | 
-| ---- | ------- | ----------- | 
-| 2024-01-21 | 0 | abcd123 - Filler Commit | 
+[Daily Tracker](daily_commit_tracker.md)
 
