@@ -8,7 +8,7 @@ jobs:
     env:
       MAIN_DIRECTORY: ${{ github.workspace }}
       CI_COMMIT_MESSAGE: Git Actions Workflow - Update daily_commit_tracker
-      CI_COMMIT_AUTHOR: BrandWest
+      CI_COMMIT_AUTHOR: CI
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
