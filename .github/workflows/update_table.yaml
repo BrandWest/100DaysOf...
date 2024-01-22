@@ -29,7 +29,7 @@ jobs:
           echo "PWD: $(pwd)"
           echo "CWD: $(CURRENT_DIR)"
           echo "Main dir: $(MAIN_DIRECTORY)"
-          echo "${{ github. path }}"
+          echo "${{ github.path }}"
           bash ${{ github.workspace }}/.github/workflows/update_table.sh kube
 
       - name: Run update_table.sh for 100DaysOfProgramming/python
