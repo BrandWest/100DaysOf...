@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-app                  # Name of the deployment
+  labels:
+    app: demo-app                 # The family and where the resources belong/
+spec:
+  replicas: 2                     # Desired state, can be 1 or more.
+  selector:
+    matchLabels:
+      app: demo-app               # How to identify resources that belong to the same overall application
+  template:
+    metadata:
+      labels:
+        app: demo-app             # Identifies the label to apply to the pods/containers
+    spec:                         # What are the configurations of the containers
+      containers:
+        - name: demo-app-pod      # - indicates an arry, so more than one pod can exist here.
+          image: demo-app-image   # The image wanted
+          env:                    # Environment Variable Details
+            - name: SOME_ENV
+              value: $SOME_VALUE
+          ports:                  # Any exposed ports which need access
+            - containerPort: 8080 # The specific port for the container, can be 1 or more.
