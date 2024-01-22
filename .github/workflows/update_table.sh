@@ -6,9 +6,7 @@ CURRENT_DIR=$(pwd)
 TODAY=$(date +"%Y-%m-%d")
 
 #Get the arguement to run on a specific feature
-SEARCH_KEY=$1
-echo $SEARCH_KEY
-COMMITS_TODAY=$(git log --since="1 day" --pretty=format:"%H" -- $CURRENT_DIR | while read -r COMMIT_HASH; do echo -n "Commit Hash: $COMMIT_HASH, Modified Top-level Folder: "; MODIFIED_FOLDER=$(git diff-tree --no-commit-id --name-only -r "$COMMIT_HASH" | awk -F/ '{print $1}'); echo "$MODIFIED_FOLDER"; done | uniq | grep -i $SEARCH_KEY | wc -l)
+COMMITS_TODAY=$(git log --since="1 day" --pretty=format:"%H" -- $MAIN_DIRECTORY | while read -r COMMIT_HASH; do echo -n "Commit Hash: $COMMIT_HASH, Modified Top-level Folder: "; MODIFIED_FOLDER=$(git diff-tree --no-commit-id --name-only -r "$COMMIT_HASH" | awk -F/ '{print $1}'); echo "$MODIFIED_FOLDER"; done | uniq | grep -i $1 | wc -l)
 
 # Get details of the last commit
 LAST_COMMIT_HASH=$(git log --format="%H" -n 1)

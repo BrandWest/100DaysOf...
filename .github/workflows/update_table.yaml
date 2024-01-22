@@ -6,6 +6,7 @@ jobs:
   update-commit-table:
     runs-on: ubuntu-latest
     env:
+      MAIN_DIRECTORY: ${{ github.workspace }}
       CI_COMMIT_MESSAGE: Git Actions Workflow - Update README
       CI_COMMIT_AUTHOR: BrandWest
     steps:
