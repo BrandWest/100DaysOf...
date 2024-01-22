@@ -31,14 +31,18 @@ jobs:
           echo "PWD: $(pwd)"
           echo "CWD: $(CURRENT_DIR)"
           echo "Main dir: $(MAIN_DIRECTORY)"
-          echo "${{ github.path }}"
+          echo "Github.path: ${{ github.path }}"
           bash ${{ github.workspace }}/.github/workflows/update_table.sh kube
 
       - name: Run update_table.sh for 100DaysOfProgramming/python
         if: steps.filter.outputs.python == 'true'
         working-directory: 100DaysOfProgramming/python
         run:  |
-          bash ${{ github.workspace }}/.github/workflows/update_table.sh python
+          echo "PWD: $(pwd)"
+          echo "CWD: $(CURRENT_DIR)"
+          echo "Main dir: $(MAIN_DIRECTORY)"
+          echo "Github.path: ${{ github.path }}"
+          bash ${{ github.workspace }}/.github/workflows/update_table.sh programming
 
       - name: Push new Daily_trackers Kubernetes
         if: ${{ steps.filter.outputs.kubernetes == 'true' }}
