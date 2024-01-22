@@ -17,18 +17,6 @@ echo "Today's Date: $TODAY"
 echo "Last Commit Message: ${LAST_COMMIT_HASH:0:7} $LAST_COMMIT_MESSAGE"
 echo "Total Commits: $COMMITS_TODAY"
 
-echo "Log info"
-echo "$(git log --since="1 day" --pretty=format:"%H")"
-echo $(git log --since="1 day" --pretty=format:"%H" -- $MAIN_DIRECTORY )
-echo $(git log --since="1 day" --pretty=format:"%H" -- $MAIN_DIRECTORY | while read -r COMMIT_HASH; do echo -n "Commit Hash: $COMMIT_HASH, Modified Top-level Folder: "; MODIFIED_FOLDER=$(git diff-tree --no-commit-id --name-only -r "$COMMIT_HASH" )
-echo $(git log --since="1 day" --pretty=format:"%H" -- $MAIN_DIRECTORY | while read -r COMMIT_HASH; do echo -n "Commit Hash: $COMMIT_HASH, Modified Top-level Folder: "; MODIFIED_FOLDER=$(git diff-tree --no-commit-id --name-only -r "$COMMIT_HASH" | awk -F/ '{print $1}'); echo "$MODIFIED_FOLDER"; done)
-echo $(git log --since="1 day" --pretty=format:"%H" -- $MAIN_DIRECTORY | while read -r COMMIT_HASH; do echo -n "Commit Hash: $COMMIT_HASH, Modified Top-level Folder: "; MODIFIED_FOLDER=$(git diff-tree --no-commit-id --name-only -r "$COMMIT_HASH" | awk -F/ '{print $1}'); echo "$MODIFIED_FOLDER"; done | uniq )
-echo $(git log --since="1 day" --pretty=format:"%H" -- $MAIN_DIRECTORY | while read -r COMMIT_HASH; do echo -n "Commit Hash: $COMMIT_HASH, Modified Top-level Folder: "; MODIFIED_FOLDER=$(git diff-tree --no-commit-id --name-only -r "$COMMIT_HASH" | awk -F/ '{print $1}'); echo "$MODIFIED_FOLDER"; done | uniq | grep -i $1 )
-
-Final: 
-echo $(git log --since="1 day" --pretty=format:"%H" -- $MAIN_DIRECTORY | while read -r COMMIT_HASH; do echo -n "Commit Hash: $COMMIT_HASH, Modified Top-level Folder: "; MODIFIED_FOLDER=$(git diff-tree --no-commit-id --name-only -r "$COMMIT_HASH" | awk -F/ '{print $1}'); echo "$MODIFIED_FOLDER"; done | uniq | grep -i $1 | wc -l)
-
-
 #Actual work
 awk -v today="$TODAY" -v commits="$COMMITS_TODAY" -v hash="${LAST_COMMIT_HASH:0:7}" -v message="$LAST_COMMIT_MESSAGE" '
 BEGIN {

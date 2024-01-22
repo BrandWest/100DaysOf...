@@ -11,7 +11,9 @@ jobs:
       CI_COMMIT_AUTHOR: BrandWest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: path filter
         uses: dorny/paths-filter@v2
         id: filter
