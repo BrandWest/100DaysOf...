@@ -44,6 +44,4 @@ Throughout this journey, I will document my daily progress, challenges faced, an
 
 ### Daily Tracker
 
-| Date | Commits | Last Commit | 
-| ---- | ------- | ----------- | 
-| 2024-01-22 | 0 | 1e62cc4 - Testing new automations |
+[Work tracker](daily_commit_tracker.md)
