@@ -46,4 +46,4 @@ Throughout this journey, I will document my daily progress, challenges faced, an
 
 | Date | Commits | Last Commit | 
 | ---- | ------- | ----------- | 
-| 2024-01-22 | 1 | 02e5cec - testing |
+| 2024-01-22 | 0 | 2bd4c0d - Small change for testing |
