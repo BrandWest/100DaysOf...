@@ -1,0 +1,29 @@
+apiVersion: v1      # The api useage version
+kind: Namespace     # What the type of resource is
+metadata:           # Data of the resource
+  name: demo-app    # The name of the namespace
+
+
+# Example from my cluster
+#NAME              STATUS        AGE     LABELS
+#kube-system       Active        471d    kubernetes.io/metadata.name=kube-system
+#default           Active        471d    kubernetes.io/metadata.name=default
+#kube-public       Active        471d    kubernetes.io/metadata.name=kube-public
+#kube-node-lease   Active        471d    kubernetes.io/metadata.name=kube-node-lease
+#pihole            Active        435d    kubernetes.io/metadata.name=pihole
+#nextcloud         Active        344d    kubernetes.io/metadata.name=nextcloud
+#traefik           Active        233d    kubernetes.io/metadata.name=traefik
+#monitoring        Active        231d    kubernetes.io/metadata.name=monitoring
+#cloudflared       Active        224d    kubernetes.io/metadata.name=cloudflared
+#cert-manager      Active        209d    kubernetes.io/metadata.name=cert-manager,name=cert-manager
+#bitwarden         Active        203d    kubernetes.io/metadata.name=bitwarden
+#metallb-system    Active        164d    kubernetes.io/metadata.name=metallb-system,pod-security.kubernetes.io/audit=privileged,pod-security.kubernetes.io/enforce=privileged,pod-security.kubernetes.io/warn=privileged
+#nginx-ingress     Active        164d    kubernetes.io/metadata.name=nginx-ingress
+#elastic-system    Active        8d      kubernetes.io/metadata.name=elastic-system,name=elastic-system
+#system-upgrade    Active        7d17h   kubernetes.io/metadata.name=system-upgrade,pod-security.kubernetes.io/enforce=privileged
+#argocd            Active        6d3h    kubernetes.io/metadata.name=argocd
+#vault             Active        2d18h   kubernetes.io/metadata.name=vault
+#sealed-secret     Terminating   2d3h    kubernetes.io/metadata.name=sealed-secret
+#sealed-secrets    Active        2d3h    kubernetes.io/metadata.name=sealed-secrets
+#demo              Active        2d3h    kubernetes.io/metadata.name=demo
+#
