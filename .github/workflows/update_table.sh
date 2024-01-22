@@ -17,6 +17,9 @@ echo "Today's Date: $TODAY"
 echo "Last Commit Message: ${LAST_COMMIT_HASH:0:7} $LAST_COMMIT_MESSAGE"
 echo "Total Commits: $COMMITS_TODAY"
 
+echo $(git log --format="%H")
+
+
 #Actual work
 awk -v today="$TODAY" -v commits="$COMMITS_TODAY" -v hash="${LAST_COMMIT_HASH:0:7}" -v message="$LAST_COMMIT_MESSAGE" '
 BEGIN {
