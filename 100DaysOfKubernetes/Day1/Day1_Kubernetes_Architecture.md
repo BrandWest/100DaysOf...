@@ -148,10 +148,40 @@
         - CRI-O
 - [Container Life-Cycle Hooks](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/):
     - Managed by kubelet
-    - 
+    - Allows Containers to be aware of events in the management lifecycle.
+    - This allows code to be run based on the lifecycle hook executed.
+    - [PostStart]():
+        - Exposed to containers
+        - Executed immediately after a container is created
+        - This could run after ENTRYPOINT
+    - [PreStop]():
+        - Exposed to containers
+        - Run imediately before termination due to API request or management event.
+            - liveness/startup probe failure
+            - resource contention
+            - more...
+        - Fails if the container is already in a terminated or completed state.
+        - Hook must complete BEFORE the TERM signal can be sent to the container.
+        - Termination grace time is started before PreStop is sent. Guarentees container terminates.
+    - [Hook Handler Implementations]():
+        - Exec: Executes specific commands (pre-stop.sh)
+        - HTTP: Performs an HTTP request
+        - Sleep: Pauses the container for a specified time. Must have PodLifecycleSleepAciton enabled.
+    - [Hook handler execution]():
+        - Lifecycle management hook is called and executes the handler according to the hook action. The following are exected by the kublet process:
+            - httpGet
+            - tcpSocket
+            - sleep
+        - Where exec is executed in the container
+        - Hook handlers are synchronous within container and pod creation.
+            - For a PostStart hook, ENTRYPOINT and hook fire asynchronously
+            - if it fails, the pod will not reach a running state.
+    - [Debugging Hook Handlers]():
+        - The hook handler logs are brodcast as events and not located within a pods logs.
 
 #### Examples
 - [Runtime Class Example with Pod](./Examples/example-RuntimeClass.yaml)
+- [A Simple Pod](./Example/example-pod.yaml)
 
 ### Interesting commands
 - kubectl delete namespace <name>: Deletes EVERYTHING under the ns.
@@ -162,6 +192,7 @@
     - uses the image registry.k8s.io/serve_hostname
     - -n=development indicates the namespace
     - replicas are how many pods to create
+- kubectl apply -f <fileame.yaml || url to yaml file>: Applies a configuration based on a file
 
 ### Resources
 - [What is Kubernetes | TechWorld with Nana](https://www.youtube.com/watch?v=VnvRFRk_51k)
