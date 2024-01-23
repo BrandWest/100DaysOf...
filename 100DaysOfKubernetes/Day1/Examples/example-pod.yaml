@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod                     # The type of the resource described
+metadata:
+  name: nginx
+  namespace: demo-app         # Where to apply the container to
+spec:                         # Describes the container
+  containers:
+  - name: nginx               # Name of the container
+    image: nginx:1.14.2       # Image name
+    ports:                    # Port config for exposing
+    - containerPort: 80
+  restartPolicy: OnFailure    # Restart policy

@@ -108,8 +108,8 @@
 - If a service is namespaced to demo1, demo2 can not use that. Similarly with storage, if you have a storage block of 1GB on the same node or endpoint as demo1 and demo2 but namespaced to demo2, demo1 can not access that storage block.
 - Namespaces are a way to divide cluster resources between multiple users [k8s namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 - there are some premade namespaces which are usable including:
-    - Default
-    - kube-node-lease
+    - Default: The default namespace for apps if not specified
+    - kube-node-lease: 
     - kube-public
     - kube-system
 - When a custom namespace is applied your endpoint will now have a different DNS record <service name>.<namespace>.svc.cluster.local
@@ -122,8 +122,66 @@
 ### Pods
 - Ephemeral, meaning the data is not saved here.
 - Are the smallest point of the kubernetes resource
+- The pods is not type locked to the underlying OS
+- Containers within a pod are run on the same node.
+- [Images](https://kubernetes.io/docs/concepts/containers/images/): 
+    - A container image (generally docker) is the software package that runs the application
+- Containers are to be considered stateless and imutable (not to be changed) while running
+- [Container environments](https://kubernetes.io/docs/concepts/containers/container-environment/):
+    - Provide a filesystem which is an image and one or more volumes
+    - Information ont he container
+    - Informaiton on other objects in the cluster.
+- [Container information](https://kubernetes.io/docs/concepts/containers/container-environment/#container-information):
+    - The hostname of a container is the name of the Pod the container is running.
+    - User defined env variables
+    - The pod name and namespace
+- [Cluster information](https://kubernetes.io/docs/concepts/containers/container-environment/#cluster-information):
+    - Services that were run whent he container was created (as env vars)
+    - This is limited to services within the same ns.
+- [Runtime Class](https://kubernetes.io/docs/concepts/containers/runtime-class/):
+    - Selects the runtime configuration for a container. 
+    - You have to balance between security and performance
+        - Security: Maybe a virtualized hardware solution including isolation, but larger overhead.
+        - Performance: Faster, and more efficent, less secure.
+    -There are a few Runtime Classes built in 
+        - containerd
+        - CRI-O
+- [Container Life-Cycle Hooks](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/):
+    - Managed by kubelet
+    - Allows Containers to be aware of events in the management lifecycle.
+    - This allows code to be run based on the lifecycle hook executed.
+    - [PostStart]():
+        - Exposed to containers
+        - Executed immediately after a container is created
+        - This could run after ENTRYPOINT
+    - [PreStop]():
+        - Exposed to containers
+        - Run imediately before termination due to API request or management event.
+            - liveness/startup probe failure
+            - resource contention
+            - more...
+        - Fails if the container is already in a terminated or completed state.
+        - Hook must complete BEFORE the TERM signal can be sent to the container.
+        - Termination grace time is started before PreStop is sent. Guarentees container terminates.
+    - [Hook Handler Implementations]():
+        - Exec: Executes specific commands (pre-stop.sh)
+        - HTTP: Performs an HTTP request
+        - Sleep: Pauses the container for a specified time. Must have PodLifecycleSleepAciton enabled.
+    - [Hook handler execution]():
+        - Lifecycle management hook is called and executes the handler according to the hook action. The following are exected by the kublet process:
+            - httpGet
+            - tcpSocket
+            - sleep
+        - Where exec is executed in the container
+        - Hook handlers are synchronous within container and pod creation.
+            - For a PostStart hook, ENTRYPOINT and hook fire asynchronously
+            - if it fails, the pod will not reach a running state.
+    - [Debugging Hook Handlers]():
+        - The hook handler logs are brodcast as events and not located within a pods logs.
 
-
+#### Examples
+- [Runtime Class Example with Pod](./Examples/example-RuntimeClass.yaml)
+- [A Simple Pod](./Example/example-pod.yaml)
 
 ### Interesting commands
 - kubectl delete namespace <name>: Deletes EVERYTHING under the ns.
@@ -134,6 +192,7 @@
     - uses the image registry.k8s.io/serve_hostname
     - -n=development indicates the namespace
     - replicas are how many pods to create
+- kubectl apply -f <fileame.yaml || url to yaml file>: Applies a configuration based on a file
 
 ### Resources
 - [What is Kubernetes | TechWorld with Nana](https://www.youtube.com/watch?v=VnvRFRk_51k)
