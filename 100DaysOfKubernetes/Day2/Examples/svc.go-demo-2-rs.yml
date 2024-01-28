@@ -1,0 +1,35 @@
+apiVersion:  apps/v1  
+kind: ReplicaSet                                  # Svc replicatset
+metadata:
+  name: go-demo-2
+spec: 
+  replicas: 2                                     # The number of preferred pdos
+  selector:                                       # What to match on
+    matchLabels:                                  # How to match
+      type: backend
+      service: go-demo-2
+  template:
+    metadata:
+      labels:
+        type: backend
+        service: go-demo-2
+        db: mongo
+        language: go
+    spec:                                         # Container information
+      containers: 
+      - name: db                                  # MongoDB + arguments
+        image: mongo:3.3
+        command: ["mongod"]
+        args: ["--rest", "--httpinterface"]
+        ports:                                     # Port (TCP)
+        - containerPort: 28017                     # The container port listening on
+          protocol: TCP                            # Specific protocol
+      - name: api
+        image: vfarcic/go-demo-2
+        env:
+        - name: DB
+          value: localhost
+        livenessProbe:                              # How to tell if the container is running
+          httpGet:
+            path: /demo/hello
+            port: 8080
