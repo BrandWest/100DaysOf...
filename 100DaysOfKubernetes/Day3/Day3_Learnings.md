@@ -1,6 +1,6 @@
-# Study Log - Day 3
+# Study Log - Day 3-4
 
-## Date: [January 28, 2024]
+## Date: [January 28-29, 2024]
 
 ### Today's Goals
 
@@ -9,7 +9,7 @@
   - [ ] Subgoal 2: Understand the fundamental resources of k8s.
 
 ### Progress Overview
-**Description**: Provide a summary of the progress made today. Include completed tasks, projects, or any significant achievements.
+**Description**: I started some learnings on Deployments, but this was not a good day for studying
 
 ### Skills Acquired
 
