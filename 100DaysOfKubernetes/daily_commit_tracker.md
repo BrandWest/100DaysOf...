@@ -4,3 +4,4 @@
 | 2024-01-22 | 36 | aae3af0 - Added the content of Day1 + some examples related to it |
 | 2024-01-23 | 27 | e41f9ce - Updated the days tracking notes |
 | 2024-01-28 | 13 | 12fc373 - Commit for Day3 startup |
+| 2024-01-30 | 0 | 5b8b7fe - Added day3 and 4 learnings together |
