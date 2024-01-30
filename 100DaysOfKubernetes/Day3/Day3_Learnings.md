@@ -1,14 +1,15 @@
-# Study Log - Day 2
+# Study Log - Day 3-4
 
-## Date: [January 27, 2024]
+## Date: [January 28-29, 2024]
 
 ### Today's Goals
 
-- [ ] Goal 1: I would like to have a better understanding of the yaml syntax, how it works, and how it can be leveraged into a efficent model.
-- [ ] Goal 2: Continue to grow my fundanmentals.
+- [ ] Goal 1: Continue from my goals yesterday.
+  - [ ] Subgoal 1: Learn more about YAML
+  - [ ] Subgoal 2: Understand the fundamental resources of k8s.
 
 ### Progress Overview
-**Description**: Provide a summary of the progress made today. Include completed tasks, projects, or any significant achievements.
+**Description**: I started some learnings on Deployments, but this was not a good day for studying
 
 ### Skills Acquired
 
@@ -17,7 +18,7 @@ List the new skills or knowledge acquired during the days study session.
 - **Skill 1:**
   - Brief description or example of understanding.
   - Link to the code or note section
-- **Skill 2:**
+- **Skill 2:**learning_template
   - Brief description or example of understanding.
   - Link to the code or note section
 - ...
