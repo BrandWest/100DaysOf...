@@ -5,3 +5,4 @@
 | 2024-01-23 | 27 | e41f9ce - Updated the days tracking notes |
 | 2024-01-28 | 13 | 12fc373 - Commit for Day3 startup |
 | 2024-01-30 | 1 | 1e2eb51 - Merge pull request #4 from BrandWest/Day3 |
+| 2024-02-02 | 0 | e71c3bc - Day 5/6 review and readings |
