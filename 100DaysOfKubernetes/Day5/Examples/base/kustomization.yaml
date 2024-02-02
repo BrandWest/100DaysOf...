@@ -1,0 +1,10 @@
+resources:
+- deployment.kustomize.example.yaml
+- service.kustomize.example.yaml
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+labels:
+- includeSelectors: true
+  pairs:
+    owner: brandon
