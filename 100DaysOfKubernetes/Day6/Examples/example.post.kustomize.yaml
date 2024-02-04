@@ -1,0 +1,67 @@
+apiVersion: v1
+data:
+  BG_COLOR: '#12181b'
+  CUSTOM_HEADER: My Custom Message
+  FONT_COLOR: '#FFFFFF'
+kind: ConfigMap
+metadata:
+  annotations:
+    app: mykustom-annontations
+  labels:
+    app: mywebapp
+  name: kustom-mykustom-map-v1-56dm69g45b
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    app: mykustom-annontations
+  labels:
+    app: mywebapp
+  name: kustom-mywebapp-v1
+  namespace: default
+spec:
+  ports:
+  - name: flask
+    port: 80
+    protocol: TCP
+  selector:
+    app: mywebapp
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app: mykustom-annontations
+  labels:
+    app: mywebapp
+  name: kustom-mywebapp-v1
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mywebapp
+  template:
+    metadata:
+      annotations:
+        app: mykustom-annontations
+      labels:
+        app: mywebapp
+    spec:
+      containers:
+      - envFrom:
+        - configMapRef:
+            name: mywebapp-configmapv1.0
+        image: devopsjourney1/mywebapp:latest
+        name: mycontainer
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 50m
+            memory: 16Mi

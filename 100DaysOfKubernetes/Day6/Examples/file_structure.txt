@@ -1,0 +1,13 @@
+├── base
+│   ├── deployment.yaml
+│   ├── kustomization.yaml
+│   └── service.yaml
+└── overlays
+    ├── dev
+    │   ├── deployment.yaml
+    │   ├── kustomization.yaml
+    │   └── service.yaml
+    └── prod
+        ├── deployment.yaml
+        ├── kustomization.yaml
+        └── service.yaml

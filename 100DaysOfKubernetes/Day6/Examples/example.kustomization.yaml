@@ -1,0 +1,19 @@
+resources:
+- name_of_resource-1.yaml
+- name_of_resource-n.yaml
+
+commonLabels:
+  app: kustomLabel
+
+commonAnnotations:
+  app: kustomAnnotations
+
+namePrefix:
+  name_beginning-
+
+nameSuffix:
+  -name_ending
+
+configMapGenerator:
+- name: customConfig_map
+  env: <file containing specific information)
