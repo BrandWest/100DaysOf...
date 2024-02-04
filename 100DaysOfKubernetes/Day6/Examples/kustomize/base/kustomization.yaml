@@ -1,0 +1,20 @@
+resources:
+- deployment.yaml
+- service.yaml
+
+commonLabels:
+  app: mywebapp
+
+commonAnnotations:
+  app: mykustom-annontations
+
+namePrefix:
+  kustom-
+
+nameSuffix:
+  -v1
+
+#Removed to put the config map generators ONLY in the dev/prod config files
+# configMapGenerator:
+# - name: mykustom-map
+#   env: .env

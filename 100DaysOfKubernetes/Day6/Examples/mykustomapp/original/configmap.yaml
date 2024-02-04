@@ -1,0 +1,11 @@
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: mywebapp-configmapv1.0
+  namespace: default
+data:
+  BG_COLOR: '#12181b'
+  FONT_COLOR: '#FFFFFF'
+  CUSTOM_HEADER: My Custom Message
+
+#Source: https://github.com/devopsjourney1/mykustomapp/tree/master

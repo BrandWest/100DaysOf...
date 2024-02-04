@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mywebapp
+  namespace: default
+spec:
+  replicas: 2
+  # template:
+  #   spec: # Pod spec
+  #     containers:
+  #     - name: newName
+  #       image: "busybox"

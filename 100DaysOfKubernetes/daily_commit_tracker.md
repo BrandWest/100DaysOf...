@@ -6,4 +6,5 @@
 | 2024-01-28 | 13 | 12fc373 - Commit for Day3 startup |
 | 2024-01-30 | 1 | 1e2eb51 - Merge pull request #4 from BrandWest/Day3 |
 | 2024-02-02 | 0 | e71c3bc - Day 5/6 review and readings |
-| 2024-02-03 | 0 | 1cf9a12 - Added learning record for day5 |
+| 2024-02-03 | 5 | d3c3b56 - Day6 Kustomize changes |
+| 2024-02-04 | 14 | aa8de6c - Added lessons learned |
