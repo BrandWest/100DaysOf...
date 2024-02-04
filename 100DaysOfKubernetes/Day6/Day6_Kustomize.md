@@ -70,8 +70,6 @@
 - [Service Differences](./Examples/example.kustomize.service.yaml)
 
 
-
-
 ### Resources
 - [Kustomize By DevOps Journey](https://www.youtube.com/watch?v=spCdNeNCuFU)
 - [mykustomap - devopsjourney1](https://github.com/devopsjourney1/mykustomapp/tree/master)

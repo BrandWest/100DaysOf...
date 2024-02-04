@@ -4,59 +4,44 @@
 
 ### Today's Goals
 
-- [ ] Goal 1: Understand Kustomize
+- [x] Goal 1: Understand Kustomize
 
 ### Progress Overview
-**Description**: Provide a summary of the progress made today. Include completed tasks, projects, or any significant achievements.
+**Description**: I worked on a simple application which takes a manifest for deployment, configmaps, and services and created a kustomization bases, overlays (dev/prod) and kustomization.yaml files for each
 
 ### Skills Acquired
 
-List the new skills or knowledge acquired during the days study session.
-
 - **Skill 1:**
-  - Brief description or example of understanding.
-  - Link to the code or note section
-- **Skill 2:**
-  - Brief description or example of understanding.
-  - Link to the code or note section
-- ...
+  - Kustomization: Understood the structure, resources, and requriments to put the patches and kustomizations in place
+  - [Notes](Day6_Kustomize.md)
+
 
 ### Challenges Faced
 
-Document any challenges or difficulties encountered during the days study. This could include concepts that were challenging to grasp, technical issues, or any other obstacles.
-
 - **Challenge 1:**
-  - Brief description of the challenge.
-  - Reflection on how the challenge was approached and plan to overcome it.
+  - The tutorial I was following used "patches" which are deprecated and would not let me get the new conifg via kubectl kustomize
+  - I was able to find the reason for the issue in the kubernetes documentation
 - **Challenge 2:**
-  - Brief description of the challenge.
-  - Reflection on how the challenge was approached and plan to overcome it.
-- ...
+  - The image used was not arm based and could not be put on my raspberry pi's
+  - The image looked to be running and immediately fell into a CrashloopBackoff. I found that in the logs there was an exec error which is caused by the wrong format for the image.
+
 
 ### Resources Used
 
-List the resources consulted or used during study. Including: online tutorials, documentation, books, or any other reference materials.
-
 - **Resource 1:**
-  - Brief description and link if applicable.
+  - I followed the DevOps Journey youtube channel to identify how kustomizations work.
+  - [Kustomize By DevOps Journey](https://www.youtube.com/watch?v=spCdNeNCuFU)
+  - [mykustomap - devopsjourney1](https://github.com/devopsjourney1/mykustomapp/tree/master)
 - **Resource 2:**
-  - Brief description and link if applicable.
-- ...
+  - I reviewed the kustomization patching details in the docmentation
+  - [Kustomize Patch Documentation](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/#composing)
+
 
 ### Plan for Tomorrow
 
 Outline next steps for the next study session. Include specific goals, topics, or tasks to be focused on in the next day's session.
 
-- [ ] Goal 1: [Specify primary learning goal for tomorrow]
-- [ ] Goal 2: [Add additional learning goals as needed]
-
-### Reflection
-
-Take a moment to reflect on the experience today. Consider what worked well, what could be improved, and any adjustments that I may want to make to study routine.
-
-### Additional Notes
-
-Include any additional notes or thoughts to capture.
-
----
+- [ ] Goal 1: Get VSCODE into a dev/prod namespace, apply the kustomization, and get the prod runnning.
+- [ ] Goal 2: Get Secrets implemented
+- [ ] Goal 3: If time permits, apply the argocd deployment model
 
