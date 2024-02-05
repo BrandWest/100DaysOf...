@@ -161,3 +161,5 @@ cython_debug/
 
 resources
 resource_examples
+.secrets
+100DaysOfKubernetes/Day7/vscode
