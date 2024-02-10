@@ -163,3 +163,5 @@ resources
 resource_examples
 .secrets
 100DaysOfKubernetes/Day7/vscode
+.*cloudflare.*
+.*secrets.*
