@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    spec:
+      containers:
+      - env:
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: vscode-secret
+              key: password
+        - name: PUID
+          value: "1000"
+        - name: GUID
+          value: "1000"
+        - name: TZ
+          value: Etc/UTC
+        image: linuxserver/code-server:4.20.1
+        imagePullPolicy: IfNotPresent
+        name: server
+        volumeMounts:
+        - mountPath: /home/storage/vscode
+          name: vscode-storage
+        - mountPath: "/home/coder/.secrets"
+          name: cert-volume
+          readOnly: true
+        resources:
+          requests:
+            memory: "16Mi" 
+            cpu: "50m"    # 500milliCPUs (1/2 CPU)
+          limits:
+            memory: "128Mi"
+            cpu: "100m"          
+      volumes:
+      - name: vscode-storage
+        persistentVolumeClaim:
+          claimName: vscode.storage.pvc
+      - name: tools-volume
+        emptyDir: {}
+      - name: cert-volume
+        secret:
+          secretName: vscode-tls
+          
+      # dnsPolicy: ClusterFirst
+      # restartPolicy: Always
+      # schedulerName: default-scheduler
+      # securityContext: {}
+      # terminationGracePeriodSeconds: 30
+

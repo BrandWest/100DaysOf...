@@ -1,0 +1,23 @@
+resources:
+- vscode.namespace.yaml
+- vscode.deployment.yaml
+- vscode.secret.yaml
+- vscode.storage.yaml
+- vscode.pv.yaml
+- vscode.pvc.yaml
+- vscode.ingress.yaml
+
+### Testing
+# namespace: vscode
+
+# commonLabels:
+#   app: vscode
+
+# commonAnnotations:
+#   app: vscode-app
+
+# namePrefix:
+#   vscode-
+
+# nameSuffix:
+#   -v1

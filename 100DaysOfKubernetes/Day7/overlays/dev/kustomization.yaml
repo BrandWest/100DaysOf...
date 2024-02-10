@@ -1,0 +1,37 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: vscode-server-dev #This can not be in a patch specifically for namespaces
+
+commonLabels:
+  app: vscode-dev
+
+commonAnnotations:
+  app: vscode-dev-app
+
+namePrefix:
+  vscode-
+
+nameSuffix:
+  -dev-v1
+
+
+resources:
+- ../../base
+
+patches:
+- path: vscode.dev.deployment.yaml
+  target:
+    kind: Deployment
+- path: vscode.dev.secret.yaml
+  target:
+    kind: Secret    
+- path: vscode.dev.storage.yaml
+  target:
+    kind: StorageClass
+- path: vscode.dev.pv.yaml
+  target:
+    kind: PersistentVolume
+- path: vscode.dev.pvc.yaml
+  target:
+    kind: PersistentVolumeClaim
