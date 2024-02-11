@@ -165,3 +165,9 @@ resource_examples
 100DaysOfKubernetes/Day7/vscode
 .*cloudflare.*
 .*secrets.*
+100DaysOfKubernetes/Day7/base/vscode.certificate.yaml
+*cloudflare.secret.yaml
+100DaysOfKubernetes/Day7/original*
+100DaysOfKubernetes/Day7/base/vscode.secret.yaml
+100DaysOfKubernetes/Day7/overlays/dev/vscode.dev.secret.yaml
+100DaysOfKubernetes/Day7/overlays/prod/vscode.prod.secret.yaml

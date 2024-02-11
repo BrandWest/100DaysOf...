@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: vscode-tls
+  namespace: vscode
+spec:
+  secretName: vscode-tls
+  issuerRef:
+    name: vscode-letsencrypt-prod
+  duration: 2160h
+  renewBefore: 360h    
+  dnsNames:
+  - vscode-dev.diagon.cloud

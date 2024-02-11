@@ -5,12 +5,12 @@ metadata:
 spec:
   storageClassName: storage
   capacity:
-    storage: 10Gi
+    storage: 1Gi
   persistentVolumeReclaimPolicy: Retain 
   accessModes:
     - ReadWriteOnce
   local:
-    path: /data
+    path: /data-dev
   nodeAffinity:
     required:
       nodeSelectorTerms:
