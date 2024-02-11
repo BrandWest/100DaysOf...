@@ -15,7 +15,6 @@ namePrefix:
 nameSuffix:
   -dev-v1
 
-
 resources:
 - ../../base
 
@@ -35,3 +34,15 @@ patches:
 - path: vscode.dev.pvc.yaml
   target:
     kind: PersistentVolumeClaim
+- path: vscode.dev.certificate.yaml
+  target: 
+    kind: Certificate
+  options:
+    allowNameChange: false    
+- path: vscode.dev.ingress.yaml
+  target:
+    kind: Ingress
+- path: vscode.dev.ingress.yaml
+  target:
+    kind: Issuer
+

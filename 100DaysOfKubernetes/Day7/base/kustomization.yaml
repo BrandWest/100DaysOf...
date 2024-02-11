@@ -6,18 +6,5 @@ resources:
 - vscode.pv.yaml
 - vscode.pvc.yaml
 - vscode.ingress.yaml
-
-### Testing
-# namespace: vscode
-
-# commonLabels:
-#   app: vscode
-
-# commonAnnotations:
-#   app: vscode-app
-
-# namePrefix:
-#   vscode-
-
-# nameSuffix:
-#   -v1
+- vscode.certificate.yaml
+- vscode.issuer.yaml
