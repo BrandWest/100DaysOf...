@@ -10,3 +10,4 @@
 | 2024-02-04 | 15 | 2c09579 - Merge pull request #5 from BrandWest/Day6 |
 | 2024-02-10 | 2 | 0aa3506 - Kustomization Practice on vscode server |
 | 2024-02-11 | 8 | 5abf357 - Starting of Day8 |
+| 2024-02-19 | 2 | 7f2efda - Added program for the vault test |
