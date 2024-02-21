@@ -11,4 +11,4 @@
 | 2024-02-10 | 2 | 0aa3506 - Kustomization Practice on vscode server |
 | 2024-02-11 | 8 | 5abf357 - Starting of Day8 |
 | 2024-02-19 | 4 | 035ee57 - Updated learnings for the day and next steps |
-| 2024-02-21 | 1 | cf68b80 - Merge pull request #7 from BrandWest/Day8 |
+| 2024-02-21 | 4 | e8c0de6 - Day9 first commit |
