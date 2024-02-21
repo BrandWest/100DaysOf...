@@ -9,4 +9,6 @@
 | 2024-02-03 | 5 | d3c3b56 - Day6 Kustomize changes |
 | 2024-02-04 | 15 | 2c09579 - Merge pull request #5 from BrandWest/Day6 |
 | 2024-02-10 | 2 | 0aa3506 - Kustomization Practice on vscode server |
-| 2024-02-11 | 5 | 33b0e42 - Merge pull request #6 from BrandWest/Day7 |
+| 2024-02-11 | 8 | 5abf357 - Starting of Day8 |
+| 2024-02-19 | 4 | 035ee57 - Updated learnings for the day and next steps |
+| 2024-02-21 | 0 | 514b57f - Updated some of the learnings |

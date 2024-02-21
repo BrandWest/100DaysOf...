@@ -171,3 +171,12 @@ resource_examples
 100DaysOfKubernetes/Day7/base/vscode.secret.yaml
 100DaysOfKubernetes/Day7/overlays/dev/vscode.dev.secret.yaml
 100DaysOfKubernetes/Day7/overlays/prod/vscode.prod.secret.yaml
+100DaysOfKubernetes/Day8/tls/ca-config.json
+100DaysOfKubernetes/Day8/tls/ca-csr.json
+100DaysOfKubernetes/Day8/tls/ca-key.pem
+100DaysOfKubernetes/Day8/tls/ca.csr
+100DaysOfKubernetes/Day8/tls/ca.pem
+100DaysOfKubernetes/Day8/tls/vault-key.pem
+100DaysOfKubernetes/Day8/tls/vault.csr
+100DaysOfKubernetes/Day8/tls/vault.pem
+100DaysOfKubernetes/Day8/secrets/vault-0.txt
