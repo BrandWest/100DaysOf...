@@ -2,6 +2,7 @@
 global:
   enabled: true
   tlsDisable: false
+  namespace: vault
 
 injector:
   enabled: true
@@ -47,6 +48,8 @@ server:
   # used to include variables required for auto-unseal.
   extraEnvironmentVars:
     VAULT_CACERT: /vault/userconfig/tls-ca/tls.crt
+    VAULT_TLSCERT: /vault/userconfig/tls-server/tls.crt
+    VAULT_TLSKEY: /vault/userconfig/tls-server/tls.key
 
   # extraVolumes is a list of extra volumes to mount. These will be exposed
   # to Vault in the path `/vault/userconfig/<name>/`.
@@ -55,6 +58,9 @@ server:
       name: tls-server
     - type: secret
       name: tls-ca
+    - type: secret
+      name: vault-tls
+
 
   standalone:
     enabled: false
@@ -67,19 +73,17 @@ server:
       ui = true
        
       listener "tcp" {
-        tls_disable = 0
+        tls_disable = "false"
         address     = "0.0.0.0:8200"
+        cluster_address = "0.0.0.0:8201"
         tls_cert_file = "/vault/userconfig/tls-server/tls.crt"
         tls_key_file = "/vault/userconfig/tls-server/tls.key"
         tls_min_version = "tls12"
       }
-
       storage "consul" {
         path = "vault"
         address = "consul-consul-server:8500"
       }
-
 # Vault UI
 ui:
   enabled: true
-  externalPort: 8200

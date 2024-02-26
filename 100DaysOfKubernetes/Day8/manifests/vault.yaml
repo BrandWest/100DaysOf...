@@ -60,13 +60,13 @@ data:
     ui = true
      
     listener "tcp" {
-      tls_disable = 0
+      tls_disable = "false"
       address     = "0.0.0.0:8200"
+      cluster_address = "0.0.0.0:8201"
       tls_cert_file = "/vault/userconfig/tls-server/tls.crt"
       tls_key_file = "/vault/userconfig/tls-server/tls.key"
       tls_min_version = "tls12"
     }
-    
     storage "consul" {
       path = "vault"
       address = "consul-consul-server:8500"
@@ -322,7 +322,9 @@ spec:
     - name: https
       port: 8200
       targetPort: 8200
-  type: ClusterIP
+      nodePort: 30820
+  type: NodePort
+  externalTrafficPolicy: Cluster
 ---
 # Source: vault/templates/injector-deployment.yaml
 # Deployment for the injector
@@ -527,6 +529,10 @@ spec:
           secret:
             secretName: tls-ca
             defaultMode: 420
+        - name: userconfig-vault-tls
+          secret:
+            secretName: vault-tls
+            defaultMode: 420
         - name: home
           emptyDir: {}
       containers:
@@ -594,6 +600,10 @@ spec:
             
             - name: "VAULT_CACERT"
               value: "/vault/userconfig/tls-ca/tls.crt"
+            - name: "VAULT_TLSCERT"
+              value: "/vault/userconfig/tls-server/tls.crt"
+            - name: "VAULT_TLSKEY"
+              value: "/vault/userconfig/tls-server/tls.key"
             
           volumeMounts:
           
@@ -608,6 +618,9 @@ spec:
             - name: userconfig-tls-ca
               readOnly: true
               mountPath: /vault/userconfig/tls-ca
+            - name: userconfig-vault-tls
+              readOnly: true
+              mountPath: /vault/userconfig/vault-tls
             - name: home
               mountPath: /home/vault
           ports:
@@ -709,6 +722,10 @@ spec:
         
         - name: "VAULT_CACERT"
           value: "/vault/userconfig/tls-ca/tls.crt"
+        - name: "VAULT_TLSCERT"
+          value: "/vault/userconfig/tls-server/tls.crt"
+        - name: "VAULT_TLSKEY"
+          value: "/vault/userconfig/tls-server/tls.key"
       command:
         - /bin/sh
         - -c

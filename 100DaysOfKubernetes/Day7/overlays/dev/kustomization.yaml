@@ -42,7 +42,7 @@ patches:
 - path: vscode.dev.ingress.yaml
   target:
     kind: Ingress
-- path: vscode.dev.ingress.yaml
+- path: vscode.dev.issuer.yaml
   target:
     kind: Issuer
 

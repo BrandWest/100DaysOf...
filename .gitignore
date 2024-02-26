@@ -180,3 +180,5 @@ resource_examples
 100DaysOfKubernetes/Day8/tls/vault.csr
 100DaysOfKubernetes/Day8/tls/vault.pem
 100DaysOfKubernetes/Day8/secrets/vault-0.txt
+100DaysOfKubernetes/Day8/additional/vault.cloudflare.yaml
+100DaysOfKubernetes/Day8/additional/vault.issuer.yaml
