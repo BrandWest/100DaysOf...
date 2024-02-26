@@ -12,3 +12,4 @@
 | 2024-02-11 | 8 | 5abf357 - Starting of Day8 |
 | 2024-02-19 | 4 | 035ee57 - Updated learnings for the day and next steps |
 | 2024-02-21 | 4 | e8c0de6 - Day9 first commit |
+| 2024-02-26 | 0 | a4a83c0 - Completed day8 values |
